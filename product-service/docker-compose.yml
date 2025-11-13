@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  mysqldb:
+    image: "mysql:8.0"
+    restart: always
+    ports:
+      - 3306:3306
+    networks:
+      - springapimysql-net
+    environment:
+      MYSQL_DATABASE: spring_cloud_api_db
+      MYSQL_USER: mason
+      MYSQL_PASSWORD: abc123
+      MYSQL_ROOT_PASSWORD: abc123
+networks:
+  springapimysql-net:
