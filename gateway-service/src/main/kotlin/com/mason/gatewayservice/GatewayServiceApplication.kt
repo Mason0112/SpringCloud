@@ -26,6 +26,14 @@ class GatewayRoutes {
             .before(uri("lb://product-service"))
             .build()
     }
+
+    @Bean
+    fun orderServiceRoutes(): RouterFunction<ServerResponse?> {
+        return route("ordersRoute")
+            .GET("/api/orders/**", http())
+            .before(uri("lb://order-service"))
+            .build()
+    }
 }
 
 fun main(args: Array<String>) {
